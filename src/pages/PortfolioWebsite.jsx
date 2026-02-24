@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaInstagram, FaLinkedin, FaGithub, FaReact, FaJs, FaCss3, FaHtml5, FaGitAlt, FaNodeJs, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import { SiTailwindcss, SiNextdotjs, SiTypescript, SiExpress, SiPostman, SiVite } from "react-icons/si";
+
+// IMPORT GAMBAR - Nama file sudah diperbaiki (tanpa spasi)
 import profileImage from "../assets/img/poto.jpg";
 import Portfolio from "../assets/img/Cuplikan layar 2026-02-25 010305.png";
 import TMDB from "../assets/img/Cuplikan layar 2026-02-25 010525.png";
@@ -8,6 +10,7 @@ import Karyawan from "../assets/img/Cuplikan layar 2026-02-25 010647.png";
 import Song from "../assets/img/Cuplikan layar 2026-02-25 010815.png";
 import Liver from "../assets/img/Cuplikan layar 2026-02-25 011131.png";
 import PRISMA from "../assets/img/Cuplikan layar 2026-02-25 013531.png";
+
 import { HiLightBulb, HiOutlineDesktopComputer, HiStar } from "react-icons/hi";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
@@ -79,7 +82,7 @@ const PortfolioWebsite = () => {
   }, []);
 
   const [isSending, setIsSending] = useState(false);
-  const [sendStatus, setSendStatus] = useState(null); // 'success' | 'error' | null
+  const [sendStatus, setSendStatus] = useState(null);
   const formRef = useRef();
 
   const sendEmail = (e) => {
@@ -87,7 +90,6 @@ const PortfolioWebsite = () => {
     setIsSending(true);
     setSendStatus(null);
 
-    // Credentials EmailJS
     const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
     const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
     const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
@@ -166,7 +168,7 @@ const PortfolioWebsite = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
-            <div className="space-y-8">
+            <div className="space-y-8 order-2 md:order-1">
               <div>
                 <h2 className="text-lg text-gray-400 tracking-wider mb-2 overflow-hidden whitespace-nowrap border-r-2 border-purple-500 animate-typing">Akmal Putra Utomo</h2>
                 <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
@@ -182,76 +184,75 @@ const PortfolioWebsite = () => {
                 yang tidak hanya indah dilihat, tetapi juga nyaman digunakan.
               </p>
 
-              <div className="flex gap-4">
-                <button className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold text-lg overflow-hidden transform hover:scale-105 transition-all duration-300">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href="#projects" className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-semibold text-lg overflow-hidden transform hover:scale-105 transition-all duration-300 text-center">
                   <span className="relative z-10">VIEW MY WORK</span>
                   <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity" />
-                </button>
+                </a>
 
-                <button className="group relative px-8 py-4 border border-purple-500 rounded-lg font-semibold text-lg overflow-hidden transform hover:scale-105 transition-all duration-300 hover:bg-purple-500/10">
+                <a href="#contact" className="group relative px-8 py-4 border border-purple-500 rounded-lg font-semibold text-lg overflow-hidden transform hover:scale-105 transition-all duration-300 hover:bg-purple-500/10 text-center">
                   <span className="relative z-10">CONTACT ME</span>
-                </button>
+                </a>
               </div>
             </div>
 
-            {/* Right Content */}
-            {/* Right Content - Layout Baru */}
-            <div className="relative hidden md:block">
-              <div className="relative w-[500px] h-[500px] mx-auto">
+            {/* Right Content - FIXED: Sekarang muncul di mobile (class hidden md:block dihapus) */}
+            <div className="relative order-1 md:order-2 mb-8 md:mb-0">
+              <div className="relative w-full max-w-[500px] mx-auto">
                 {/* Efek glow di belakang */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full filter blur-3xl opacity-30 animate-pulse" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 md:w-80 h-64 md:h-80 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full filter blur-3xl opacity-30 animate-pulse" />
 
-                <div className="relative flex flex-col items-center justify-center h-full">
+                <div className="relative flex flex-col items-center justify-center">
                   {/* Foto Profil */}
-                  <div className="w-48 h-48 rounded-full p-1 bg-gradient-to-r from-purple-500 to-pink-500 mb-6">
+                  <div className="w-40 md:w-48 h-40 md:h-48 rounded-full p-1 bg-gradient-to-r from-purple-500 to-pink-500 mb-6">
                     <div className="w-full h-full rounded-full overflow-hidden border-4 border-black">
                       <img src={profileImage} alt="Akmal Putra Utomo" className="w-full h-full object-cover" />
                     </div>
                   </div>
 
-                  {/* Nama dan Profesi - JELAS TERLIHAT */}
+                  {/* Nama dan Profesi */}
                   <div className="text-center">
-                    <h3 className="text-4xl font-bold text-white mb-2">{displayName}</h3>
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">{displayName}</h3>
                     <div className="flex items-center justify-center gap-2">
                       <div className="h-0.5 w-8 bg-gradient-to-r from-purple-500 to-pink-500"></div>
-                      <p className="text-pink-400 font-semibold text-xl tracking-wider">FRONT END DEVELOPER</p>
+                      <p className="text-pink-400 font-semibold text-lg md:text-xl tracking-wider">FRONT END DEVELOPER</p>
                       <div className="h-0.5 w-8 bg-gradient-to-r from-pink-500 to-purple-500"></div>
                     </div>
 
-                    {/* Skills Icons */}
-                    <div className="flex justify-center gap-3 mt-6 flex-wrap">
+                    {/* Skills Icons - Responsive grid untuk mobile */}
+                    <div className="grid grid-cols-4 sm:grid-cols-6 gap-2 mt-6">
                       <div className="bg-gray-800/80 p-2 rounded-lg backdrop-blur-sm hover:scale-110 transition-transform" title="React">
-                        <FaReact className="text-cyan-400 text-xl" />
+                        <FaReact className="text-cyan-400 text-xl mx-auto" />
                       </div>
                       <div className="bg-gray-800/80 p-2 rounded-lg backdrop-blur-sm hover:scale-110 transition-transform" title="Next.js">
-                        <SiNextdotjs className="text-white text-xl" />
+                        <SiNextdotjs className="text-white text-xl mx-auto" />
                       </div>
                       <div className="bg-gray-800/80 p-2 rounded-lg backdrop-blur-sm hover:scale-110 transition-transform" title="JavaScript">
-                        <FaJs className="text-yellow-400 text-xl" />
+                        <FaJs className="text-yellow-400 text-xl mx-auto" />
                       </div>
                       <div className="bg-gray-800/80 p-2 rounded-lg backdrop-blur-sm hover:scale-110 transition-transform" title="Tailwind CSS">
-                        <SiTailwindcss className="text-cyan-300 text-xl" />
+                        <SiTailwindcss className="text-cyan-300 text-xl mx-auto" />
                       </div>
                       <div className="bg-gray-800/80 p-2 rounded-lg backdrop-blur-sm hover:scale-110 transition-transform" title="HTML5">
-                        <FaHtml5 className="text-orange-500 text-xl" />
+                        <FaHtml5 className="text-orange-500 text-xl mx-auto" />
                       </div>
                       <div className="bg-gray-800/80 p-2 rounded-lg backdrop-blur-sm hover:scale-110 transition-transform" title="CSS3">
-                        <FaCss3 className="text-blue-500 text-xl" />
+                        <FaCss3 className="text-blue-500 text-xl mx-auto" />
                       </div>
                       <div className="bg-gray-800/80 p-2 rounded-lg backdrop-blur-sm hover:scale-110 transition-transform" title="Express.js">
-                        <SiExpress className="text-gray-400 text-xl" />
+                        <SiExpress className="text-gray-400 text-xl mx-auto" />
                       </div>
                       <div className="bg-gray-800/80 p-2 rounded-lg backdrop-blur-sm hover:scale-110 transition-transform" title="Git">
-                        <FaGitAlt className="text-orange-600 text-xl" />
+                        <FaGitAlt className="text-orange-600 text-xl mx-auto" />
                       </div>
                       <div className="bg-gray-800/80 p-2 rounded-lg backdrop-blur-sm hover:scale-110 transition-transform" title="GitHub">
-                        <FaGithub className="text-white text-xl" />
+                        <FaGithub className="text-white text-xl mx-auto" />
                       </div>
                       <div className="bg-gray-800/80 p-2 rounded-lg backdrop-blur-sm hover:scale-110 transition-transform" title="Postman">
-                        <SiPostman className="text-orange-500 text-xl" />
+                        <SiPostman className="text-orange-500 text-xl mx-auto" />
                       </div>
                       <div className="bg-gray-800/80 p-2 rounded-lg backdrop-blur-sm hover:scale-110 transition-transform" title="Vite">
-                        <SiVite className="text-purple-400 text-xl" />
+                        <SiVite className="text-purple-400 text-xl mx-auto" />
                       </div>
                     </div>
                   </div>
@@ -359,7 +360,7 @@ const PortfolioWebsite = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Projects Section */}
       <section id="projects" className="py-20 bg-gradient-to-b from-gray-900 to-black">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
@@ -377,7 +378,7 @@ const PortfolioWebsite = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-5 transition-opacity" />
 
               <div className="relative h-48 overflow-hidden">
-                <img src={TMDB} alt="TMDB" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <img src={TMDB} alt="TMDB Movie App" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               </div>
 
@@ -392,10 +393,10 @@ const PortfolioWebsite = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <a href="https://tmdb-upgrade.vercel.app/" className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
+                  <a href="https://tmdb-upgrade.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
                     Live Demo <span>→</span>
                   </a>
-                  <a href="https://github.com/akmalputrautomo/TMDB-UPGRADE" className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
+                  <a href="https://github.com/akmalputrautomo/TMDB-UPGRADE" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
                     GitHub <span>→</span>
                   </a>
                 </div>
@@ -423,10 +424,10 @@ const PortfolioWebsite = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <a href="https://portfolio-ochre-five-0pzjp3uzfs.vercel.app" className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
+                  <a href="https://portfolio-ochre-five-0pzjp3uzfs.vercel.app" target="_blank" rel="noopener noreferrer" className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
                     Live Demo <span>→</span>
                   </a>
-                  <a href="https://github.com/akmalputrautomo/Portfolio" className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
+                  <a href="https://github.com/akmalputrautomo/Portfolio" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
                     GitHub <span>→</span>
                   </a>
                 </div>
@@ -438,7 +439,7 @@ const PortfolioWebsite = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-5 transition-opacity" />
 
               <div className="relative h-48 overflow-hidden">
-                <img src={Karyawan} alt="Absesni Karyawan" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <img src={Karyawan} alt="Absensi Karyawan" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               </div>
 
@@ -454,10 +455,10 @@ const PortfolioWebsite = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <a href="https://absensi-karyawan-one.vercel.app" className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
+                  <a href="https://absensi-karyawan-one.vercel.app" target="_blank" rel="noopener noreferrer" className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
                     Live Demo <span>→</span>
                   </a>
-                  <a href="https://github.com/akmalputrautomo/absensi-karyawan" className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
+                  <a href="https://github.com/akmalputrautomo/absensi-karyawan" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
                     GitHub <span>→</span>
                   </a>
                 </div>
@@ -469,7 +470,7 @@ const PortfolioWebsite = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-5 transition-opacity" />
 
               <div className="relative h-48 overflow-hidden">
-                <img src={Song} alt="Song" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <img src={Song} alt="Song Request App" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               </div>
 
@@ -485,10 +486,10 @@ const PortfolioWebsite = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <a href="https://rins-project.vercel.app" className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
+                  <a href="https://rins-project.vercel.app" target="_blank" rel="noopener noreferrer" className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
                     Live Demo <span>→</span>
                   </a>
-                  <a href="https://github.com/akmalputrautomo/song-request" className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
+                  <a href="https://github.com/akmalputrautomo/song-request" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
                     GitHub <span>→</span>
                   </a>
                 </div>
@@ -500,7 +501,7 @@ const PortfolioWebsite = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-5 transition-opacity" />
 
               <div className="relative h-48 overflow-hidden">
-                <img src={Liver} alt="Liver" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <img src={Liver} alt="E-Learning Platform" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               </div>
 
@@ -517,22 +518,22 @@ const PortfolioWebsite = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <a href="https://tugaspwl-lake-xi.vercel.app" className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
+                  <a href="https://tugaspwl-lake-xi.vercel.app" target="_blank" rel="noopener noreferrer" className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
                     Live Demo <span>→</span>
                   </a>
-                  <a href="https://github.com/akmalputrautomo/finalproject" className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
+                  <a href="https://github.com/akmalputrautomo/finalproject" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
                     GitHub <span>→</span>
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Project 6 - Task Management */}
+            {/* Project 6 - Prisma Saestu Wisesa */}
             <div className="group relative bg-gray-800/50 rounded-2xl border border-gray-700 overflow-hidden hover:border-purple-500 transition-all duration-300 hover:-translate-y-2">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-5 transition-opacity" />
 
               <div className="relative h-48 overflow-hidden">
-                <img src={PRISMA} alt="Company Profile" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <img src={PRISMA} alt="Prisma Saestu Wisesa Company Profile" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               </div>
 
@@ -549,21 +550,16 @@ const PortfolioWebsite = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <a href="https://pt-prisma-saestu-wisesa.vercel.app" className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
+                  <a href="https://pt-prisma-saestu-wisesa.vercel.app" target="_blank" rel="noopener noreferrer" className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
                     Live Demo <span>→</span>
                   </a>
-                  <a href="https://github.com/akmalputrautomo/PT.PRISMA-SAESTU-WISESA" className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
+                  <a href="https://github.com/akmalputrautomo/PT.PRISMA-SAESTU-WISESA" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
                     GitHub <span>→</span>
                   </a>
                 </div>
               </div>
             </div>
           </div>
-
-          {/* View More Button */}
-          {/* <div className="text-center mt-12">
-            <button className="px-8 py-3 border border-purple-500 text-purple-400 rounded-lg hover:bg-purple-500/10 transition-colors">View More Projects</button>
-          </div> */}
         </div>
       </section>
 
@@ -580,7 +576,7 @@ const PortfolioWebsite = () => {
             {/* Status Messages */}
             {sendStatus === "success" && <div className="mb-6 p-4 bg-green-500/20 border border-green-500 rounded-lg text-green-400 animate-pulse">✅ Message sent successfully! I'll get back to you soon.</div>}
 
-            {sendStatus === "error" && <div className="mb-6 p-4 bg-red-500/20 border border-red-500 rounded-lg text-red-400">❌ Failed to send message. Please try again or email me directly at akmal@example.com</div>}
+            {sendStatus === "error" && <div className="mb-6 p-4 bg-red-500/20 border border-red-500 rounded-lg text-red-400">❌ Failed to send message. Please try again or email me directly at akmalputra040203@gmail.com</div>}
 
             {/* Contact Form */}
             <form ref={formRef} onSubmit={sendEmail} className="space-y-6 max-w-2xl mx-auto">
