@@ -402,7 +402,7 @@ const PortfolioWebsite = () => {
               </div>
             </div>
 
-            {/* Projec 2 - Portfolio Website */}
+            {/* Project 2 - Portfolio Website */}
             <div className="group relative bg-gray-800/50 rounded-2xl border border-gray-700 overflow-hidden hover:border-purple-500 transition-all duration-300 hover:-translate-y-2">
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-5 transition-opacity" />
 
