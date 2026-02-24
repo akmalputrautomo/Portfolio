@@ -423,9 +423,9 @@ const PortfolioWebsite = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  {/* <a href="" className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
+                  <a href="https://portfolio-ochre-five-0pzjp3uzfs.vercel.app" className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
                     Live Demo <span>→</span>
-                  </a> */}
+                  </a>
                   <a href="https://github.com/akmalputrautomo/Portfolio" className="text-sm text-gray-400 hover:text-white flex items-center gap-1">
                     GitHub <span>→</span>
                   </a>
